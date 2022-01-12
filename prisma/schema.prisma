@@ -11,17 +11,18 @@ datasource db {
 }
 
 model Product {
-  id          String   @id @default(uuid())
+  id          String     @id @default(uuid())
   name        String
-  sku         String   @unique
+  sku         String     @unique
   description String?
-  brand       Brand    @relation(fields: [brandId], references: [id])
+  brand       Brand      @relation(fields: [brandId], references: [id])
   brandId     String
-  storage     Storage? @relation(fields: [storageId], references: [id])
+  storage     Storage?   @relation(fields: [storageId], references: [id])
   storageId   String?
+  categories  Category[]
   amount      Int
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
 
   @@map("products")
 }
@@ -47,4 +48,15 @@ model Storage {
   updatedAt   DateTime  @updatedAt
 
   @@map("storages")
+}
+
+model Category {
+  id          String    @id @default(uuid())
+  name        String
+  description String
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("categories")
 }
