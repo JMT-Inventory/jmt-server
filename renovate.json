@@ -1,5 +1,25 @@
 {
-  "extends": [
-    "config:base"
+  "extends": ["config:base"],
+  "commitBodyTable": true,
+  "branchPrefix": "deps/",
+  "labels": ["dependencies"],
+  "stabilityDays": 3
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "addLabels": ["d:major"]
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "addLabels": ["d:minor"]
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "addLabels": ["d:patch"]
+    },
   ]
 }
