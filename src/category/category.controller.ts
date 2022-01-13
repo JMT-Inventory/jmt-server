@@ -1,5 +1,5 @@
 import { Controller, Post, Body } from '@nestjs/common';
-import { CreateCategoryDto } from './category.dto';
+import { CreateCategoryDto } from './create-category.dto';
 import { CategoryService } from './category.service';
 
 @Controller('category')
