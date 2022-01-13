@@ -11,13 +11,6 @@ export class CategoryService {
     return await this.prisma.category.create({ data: category });
   }
 
-  async update(category: IChangedCategory): Promise<Category> {
-    return await this.prisma.category.update({
-      where: { id: category.id },
-      data: category,
-    });
-  }
-
   async findAll(): Promise<Category[]> {
     return await this.prisma.category.findMany();
   }
@@ -32,5 +25,16 @@ export class CategoryService {
     }
 
     return category;
+  }
+
+  async update(category: IChangedCategory): Promise<Category> {
+    return await this.prisma.category.update({
+      where: { id: category.id },
+      data: category,
+    });
+  }
+
+  async deleteAll() {
+    await this.prisma.category.deleteMany({});
   }
 }
