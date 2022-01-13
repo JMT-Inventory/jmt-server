@@ -1,4 +1,13 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
+import { CreateCategoryDto } from './category.dto';
+import { CategoryService } from './category.service';
 
 @Controller('category')
-export class CategoryController {}
+export class CategoryController {
+  constructor(private categoryService: CategoryService) {}
+
+  @Post('create')
+  async create(@Body() categoryDto: CreateCategoryDto) {
+    return this.categoryService.create(categoryDto);
+  }
+}
