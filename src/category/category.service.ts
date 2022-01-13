@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { ICategory, IChangedCategory } from './category.interface';
+import { INewCategory, IChangedCategory } from './category.interface';
 import { PrismaService } from '../prisma.service';
 import { Category } from '@prisma/client';
 
@@ -7,7 +7,7 @@ import { Category } from '@prisma/client';
 export class CategoryService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(category: ICategory): Promise<Category> {
+  async create(category: INewCategory): Promise<Category> {
     return await this.prisma.category.create({ data: category });
   }
 

@@ -1,4 +1,4 @@
-export interface ICategory {
+export interface INewCategory {
   name: string;
   description: string;
 }
