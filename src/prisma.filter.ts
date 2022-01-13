@@ -16,9 +16,14 @@ export class DatabaseKnownExceptionFilter implements ExceptionFilter {
     switch (exception.code) {
       case 'P2002':
         response.status(HttpStatus.BAD_REQUEST).json({
-          errorCode: exception.code,
           message: 'Some entries already exist',
-          invalidEntries: exception.meta,
+          meta: exception.meta,
+        });
+        break;
+      case 'P2025':
+        response.status(HttpStatus.BAD_REQUEST).json({
+          message: 'Record not found',
+          meta: exception.meta,
         });
         break;
       default:
