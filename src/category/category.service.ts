@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { ICategory } from './category.interface';
+import { ICategory, IChangedCategory } from './category.interface';
 import { PrismaService } from '../prisma.service';
 import { Category } from '@prisma/client';
 
@@ -9,6 +9,13 @@ export class CategoryService {
 
   async create(category: ICategory): Promise<Category> {
     return await this.prisma.category.create({ data: category });
+  }
+
+  async update(category: IChangedCategory): Promise<Category> {
+    return await this.prisma.category.update({
+      where: { id: category.id },
+      data: category,
+    });
   }
 
   async findAll(): Promise<Category[]> {
