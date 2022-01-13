@@ -22,6 +22,7 @@ model Product {
   categories   Category[]
   amount       Int
   productEntry ProductEntry[]
+  productExit  ProductExit[]
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt
 
@@ -87,4 +88,14 @@ model ProductEntry {
   date       DateTime @default(now())
 
   @@map("product_entries")
+}
+
+model ProductExit {
+  id        String   @id @default(uuid())
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String
+  amount    Int
+  date      DateTime @default(now())
+
+  @@map("product_exits")
 }
