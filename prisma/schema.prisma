@@ -24,7 +24,7 @@ model Product {
   productEntry ProductEntry[]
   productExit  ProductExit[]
   createdAt    DateTime       @default(now())
-  updatedAt    DateTime       @updatedAt
+  updatedAt    DateTime       @default(now()) @updatedAt
 
   @@map("products")
 }
@@ -36,7 +36,7 @@ model Brand {
   website     String?   @unique
   products    Product[]
   createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  updatedAt   DateTime  @default(now()) @updatedAt
 
   @@map("brands")
 }
@@ -47,7 +47,7 @@ model Storage {
   description String
   products    Product[]
   createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  updatedAt   DateTime  @default(now()) @updatedAt
 
   @@map("storages")
 }
@@ -58,7 +58,7 @@ model Category {
   description String
   products    Product[]
   createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  updatedAt   DateTime  @default(now()) @updatedAt
 
   @@map("categories")
 }
@@ -72,7 +72,7 @@ model Provider {
   website      String?        @unique
   productEntry ProductEntry[]
   createdAt    DateTime       @default(now())
-  updatedAt    DateTime       @updatedAt
+  updatedAt    DateTime       @default(now()) @updatedAt
 
   @@map("providers")
 }
@@ -85,7 +85,7 @@ model ProductEntry {
   price      Float
   provider   Provider @relation(fields: [providerId], references: [id])
   providerId String
-  date       DateTime @default(now())
+  date       DateTime
 
   @@map("product_entries")
 }
@@ -95,7 +95,7 @@ model ProductExit {
   product   Product  @relation(fields: [productId], references: [id])
   productId String
   amount    Int
-  date      DateTime @default(now())
+  date      DateTime
 
   @@map("product_exits")
 }
