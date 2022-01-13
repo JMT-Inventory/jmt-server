@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { APP_FILTER } from '@nestjs/core';
 import { CategoryModule } from './category/category.module';
-import { DatabaseKnownExceptionFilter } from './common/filters/database.filter';
+import { DatabaseKnownExceptionFilter } from './database.filter';
 
 @Module({
   imports: [CategoryModule],
