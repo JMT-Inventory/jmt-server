@@ -37,4 +37,10 @@ export class CategoryService {
   async deleteAll() {
     await this.prisma.category.deleteMany({});
   }
+
+  async deleteOne(name: string) {
+    await this.prisma.category.delete({
+      where: { name },
+    });
+  }
 }
