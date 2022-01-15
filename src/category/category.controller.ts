@@ -38,4 +38,9 @@ export class CategoryController {
   async deleteAll() {
     return this.categoryService.deleteAll();
   }
+
+  @Delete(':name')
+  async deleteOne(@Param('name') name: string) {
+    return this.categoryService.deleteOne(name);
+  }
 }
