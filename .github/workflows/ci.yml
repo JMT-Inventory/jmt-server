@@ -31,7 +31,7 @@ jobs:
       run: yarn install
         
     - name: Check Lint
-      run: eslint src/**
+      run: yarn lint
     
     - name: Test
       run: yarn test
