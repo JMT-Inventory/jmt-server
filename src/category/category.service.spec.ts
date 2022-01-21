@@ -124,4 +124,26 @@ describe('CategoryService', () => {
       expect(runMethodForTest).rejects.toThrowError(BadRequestException);
     });
   });
+
+  describe('update', () => {
+    it('should update and return a category', async () => {
+      const category = {
+        id: randomUUID(),
+        name: 'perishable',
+        description: 'Perishable products after a period of time',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
+
+      mockedPrisma.category.update.mockResolvedValue(category);
+
+      const updatedCategory = await categoryService.update({
+        id: category.id,
+        name: category.name,
+        description: category.description,
+      });
+
+      expect(updatedCategory).toBe(category);
+    });
+  });
 });
