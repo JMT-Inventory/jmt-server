@@ -1197,10 +1197,10 @@
     "@types/cookiejar" "*"
     "@types/node" "*"
 
-"@types/supertest@2.0.11":
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/@types/supertest/-/supertest-2.0.11.tgz#2e70f69f220bc77b4f660d72c2e1a4231f44a77d"
-  integrity sha512-uci4Esokrw9qGb9bvhhSVEjd6rkny/dk5PK/Qz4yxKiyppEI+dOPlNrZBahE3i+PoKFYyDxChVXZ/ysS/nrm1Q==
+"@types/supertest@2.0.13":
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/@types/supertest/-/supertest-2.0.13.tgz#797b3df9abb9a09c4c740c9c615d618c7921ad41"
+  integrity sha512-Vc/5/pRwSC055fU7Wu8erTj4gLpID9SdG2zRMuqaHLni3GTsrJ8gyB6MbFZZGLW6vQaGPhiUWRB6uWglv87MEg==
   dependencies:
     "@types/superagent" "*"
 
